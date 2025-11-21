@@ -1,0 +1,78 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Teacher;
+use App\Models\Principal;
+use Illuminate\Http\Request;
+
+class PageController extends Controller
+{
+    // Home Page
+    public function HomePage()
+    {
+        return view('welcome');
+    }
+
+    // About Page
+    public function AboutPage()
+    {
+        return view('about');
+    }
+
+    // Principal Page
+    public function PrincipalPage()
+    {
+        // Fetch principal data from the database
+        $principal = Principal::first();
+        return view('principal', compact('principal'));
+    }
+
+    // Admission Page
+    public function AdmissionPage()
+    {
+        return view('admission');
+    }
+
+    // Teachers Page
+    public function TeachersPage()
+    {
+        $kitabTeachers = Teacher::where('category', 'kitab')
+            ->orderBy('order')
+            ->get();
+
+        $hifzTeachers = Teacher::where('category', 'hifz')
+            ->orderBy('order')
+            ->get();
+
+        $girlsTeachers = Teacher::where('category', 'girls')
+            ->orderBy('order')
+            ->get();
+
+        return view('teachers', compact('kitabTeachers', 'hifzTeachers', 'girlsTeachers'));
+    }
+
+    // Result Page
+    public function ResultPage()
+    {
+        return view('result');
+    }
+
+    // Donation Page
+    public function DonationPage()
+    {
+        return view('donation');
+    }
+
+    // Event Page
+    public function EventPage()
+    {
+        return view('event');
+    }
+
+    // Contact Page
+    public function ContactPage()
+    {
+        return view('contact');
+    }
+}
