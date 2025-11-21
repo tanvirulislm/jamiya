@@ -7,9 +7,8 @@
     <h2 class="text-3xl font-extrabold text-green-900 text-center py-8">আমাদের শিক্ষকবৃন্দ</h2>
 
     <section class="container mx-auto px-4 pb-20">
-        <!-- Teachers Grid -->
+        <h2 class="text-2xl font-extrabold text-green-900 py-8">জামেয়ার কিতাব বিভাগের শিক্ষকবৃন্দ</h2>
         <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
-            <!-- Teacher Card -->
             @foreach ($kitabTeachers as $kt)
                 <div class="bg-white border border-green-700 shadow-lg rounded-2xl p-4 hover:-translate-y-1 transition">
                     <img src="{{ asset('storage/' . $kt->image_url) }}"
@@ -23,40 +22,38 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <h2 class="text-2xl font-extrabold text-green-900 py-8">জামেয়ার হিফজ বিভাগের শিক্ষকবৃন্দ</h2>
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+            @foreach ($hifzTeachers as $ht)
+                <div class="bg-white border border-green-700 shadow-lg rounded-2xl p-4 hover:-translate-y-1 transition">
+                    <img src="{{ asset('storage/' . $ht->image_url) }}"
+                        class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-green-700" />
+                    <h3 class="text-xl font-bold text-green-900 text-center mt-4">{{ $ht->name }}</h3>
+                    <p class="text-center text-green-800 font-semibold">{{ $ht->designation }}</p>
 
-            <!-- Duplicate More Teacher Cards as Needed -->
-            {{-- <div class="bg-white border border-green-700 shadow-lg rounded-2xl p-6 hover:-translate-y-1 transition">
-                <img src="image/teacher2.jpg"
-                    class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-green-700" />
-                <h3 class="text-xl font-bold text-green-900 text-center mt-4">মাওলানা সাইফুল ইসলাম</h3>
-                <p class="text-center text-green-800 font-semibold">হিফজ বিভাগের শিক্ষক</p>
-                <div class="mt-4 space-y-1 text-center text-gray-700">
-                    <p><i class="fa-solid fa-phone mr-2 text-green-700"></i> 01700-000000</p>
-                    <p><i class="fa-solid fa-envelope mr-2 text-green-700"></i> mail@example.com</p>
+                    <div class="mt-4 space-y-1 text-center text-gray-700">
+                        <p><i class="fa-solid fa-phone mr-2 text-green-700"></i> {{ $ht->phone }}</p>
+                        <p class="text-sm"><i class="fa-solid fa-envelope mr-2 text-green-700"></i> {{ $ht->email }}</p>
+                    </div>
                 </div>
-            </div>
+            @endforeach
+        </div>
+        <h2 class="text-2xl font-extrabold text-green-900 py-8">জামেয়ার মহিলা শিক্ষকাবৃন্দ</h2>
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+            @foreach ($girlsTeachers as $gt)
+                <div class="bg-white border border-green-700 shadow-lg rounded-2xl p-4 hover:-translate-y-1 transition">
+                    <img src="{{ asset('storage/' . $gt->image_url) }}"
+                        class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-green-700" />
+                    <h3 class="text-xl font-bold text-green-900 text-center mt-4">{{ $gt->name }}</h3>
+                    <p class="text-center text-green-800 font-semibold">{{ $gt->designation }}</p>
 
-            <div class="bg-white border border-green-700 shadow-lg rounded-2xl p-6 hover:-translate-y-1 transition">
-                <img src="image/teacher3.jpg"
-                    class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-green-700" />
-                <h3 class="text-xl font-bold text-green-900 text-center mt-4">উস্তাজা আফসানা বেগম</h3>
-                <p class="text-center text-green-800 font-semibold">বালিকা শাখা</p>
-                <div class="mt-4 space-y-1 text-center text-gray-700">
-                    <p><i class="fa-solid fa-phone mr-2 text-green-700"></i> 01812-111111</p>
-                    <p><i class="fa-solid fa-envelope mr-2 text-green-700"></i> ustaza@example.com</p>
+                    <div class="mt-4 space-y-1 text-center text-gray-700">
+                        <p><i class="fa-solid fa-phone mr-2 text-green-700"></i> {{ $gt->phone }}</p>
+                        <p class="text-sm"><i class="fa-solid fa-envelope mr-2 text-green-700"></i> {{ $gt->email }}</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="bg-white border border-green-700 shadow-lg rounded-2xl p-6 hover:-translate-y-1 transition">
-                <img src="image/teacher4.jpg"
-                    class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-green-700" />
-                <h3 class="text-xl font-bold text-green-900 text-center mt-4">মাওলানা জাকারিয়া হুসাইন</h3>
-                <p class="text-center text-green-800 font-semibold">কিতাব বিভাগের শিক্ষক</p>
-                <div class="mt-4 space-y-1 text-center text-gray-700">
-                    <p><i class="fa-solid fa-phone mr-2 text-green-700"></i> 01730-222222</p>
-                    <p><i class="fa-solid fa-envelope mr-2 text-green-700"></i> zakaria@example.com</p>
-                </div>
-            </div> --}}
+            @endforeach
         </div>
     </section>
 @endsection
