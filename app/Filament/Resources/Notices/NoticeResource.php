@@ -18,7 +18,7 @@ class NoticeResource extends Resource
 {
     protected static ?string $model = Notice::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::BellAlert;
 
     public static function form(Schema $schema): Schema
     {
@@ -29,6 +29,12 @@ class NoticeResource extends Resource
     {
         return NoticesTable::configure($table);
     }
+
+    public static function canCreate(): bool
+    {
+        return \App\Models\Notice::count() < 1;
+    }
+
 
     public static function getRelations(): array
     {

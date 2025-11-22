@@ -6,6 +6,7 @@ use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\RichEditor\TextColor;
 
 class PrincipalForm
 {
@@ -34,9 +35,14 @@ class PrincipalForm
                 RichEditor::make('message')
                     ->label('বার্তা')
                     ->columnSpanFull()
+                    ->textColors([
+                        'brand' => TextColor::make('Brand', '#0ea5e9'),
+                        'warning' => TextColor::make('Warning', '#f59e0b', darkColor: '#fbbf24'),
+                    ])
                     ->maxLength(65535),
                 FileUpload::make('photo')
                     ->columnSpanFull()
+                    ->disk('public')
                     ->label('ছবি'),
             ]);
     }

@@ -44,8 +44,8 @@
     <!-- প্রতিষ্ঠার ইতিহাস -->
     <section class="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-6">
         <div class="bg-white p-6 rounded shadow">
-            <h3 class="text-xl font-bold mb-3 text-green-800">মাদরাসা প্রতিষ্ঠার ইতিহাস</h3>
-            <p class="text-gray-700 leading-relaxed text-medium">
+            <h3 class="text-2xl font-bold mb-3 text-green-800">মাদরাসা প্রতিষ্ঠার ইতিহাস</h3>
+            <p class="text-gray-700 leading-relaxed text-lg mb-4">
                 মাওলানা মুহাম্মদ আব্দুশ শাকুর ১৯৯৪ সালে দ্বীনি শিক্ষার সর্বোচ্চ স্তর দাওরায়ে হাদীস অধ্যয়ন সমাপ্ত করে
                 তাবলীগি সফর শেষে শ্রীমঙ্গলের সিন্দুরখান রোডে অবস্থিত তাঁর চাচার বাসায় অবস্থান করেন। এরপর তিনি
                 পার্শ্ববর্তী খাসগাঁও হাসানিয়া মাদরাসায় মহান শিক্ষকতার পেশায় নিয়োজিত হন। যদিও তিনি দ্বীনের
@@ -61,10 +61,11 @@
                 কারীমের অফুরন্ত অনুগ্রহ ও মেহেরবানিতে ১৯৯৮ সালের ২ রমযান ১৪১৮ হিজরি তারিখে “জামেয়া ইসলামিয়া বালক-বালিকা
                 মাদরাসা, সিন্দুরখান রোড, শ্রীমঙ্গল” নামক এই দ্বীনি দরসগাহের শুভ সূচনা হয়।
             </p>
+            <a href="{{ route("about") }}" class="bg-green-900 rounded text-white px-4 py-1.5">আমাদের সম্পর্কে পড়ুন</a>
         </div>
         <div class="bg-white p-6 rounded shadow">
-            <h3 class="text-xl font-bold mb-3 text-green-800">এক নজরে জামেয়া ইসলামিয়া</h3>
-            <ul class="text-sm text-gray-700 space-y-1">
+            <h3 class="text-2xl font-bold mb-3 text-green-800">এক নজরে জামেয়া ইসলামিয়া</h3>
+            <ul class="text-lg text-gray-700 space-y-1">
                 <li><strong>নাম:</strong> জামেয়া ইসলামিয়া শ্রীমঙ্গল</li>
                 <li><strong>প্রতিষ্ঠাতা:</strong> ১লা জানুয়ারী ১৯৯৯ ঈসায়ী মোতাবেক ২রা রমযান ১৪১৮ হিজরী</li>
                 <li><strong>ঠিকানা:</strong>সুনগইড়, সিন্দুরখান রোড, শ্রীমঙ্গল ৩২১০, মৌলভীবাজার</li>
@@ -85,7 +86,7 @@
     </section>
 
     <!-- মুহতামিম -->
-    <section class="container mx-auto px-4 py-10 grid md:grid-cols-3 gap-10">
+    <section class="container mx-auto px-4 py-10 grid md:grid-cols-4 gap-10">
         <!-- Left: মুহতামিম কার্ড -->
         <div class="bg-white rounded-2xl col-span-1 shadow border border-gray-200">
             <!-- Green Top Bar -->
@@ -94,43 +95,29 @@
             <!-- Image -->
             <div class="p-6 flex justify-center">
                 <div class="border-4 border-black p-1">
-                    <img src="image1.webp" alt="Muhtamim" class="w-64 h-auto object-cover" />
+                    <img src="{{ asset('storage/' . $principal->photo) }}" alt="Muhtamim"
+                        class="w-64 h-auto object-cover" />
                 </div>
             </div>
 
             <!-- Name & Details -->
             <div class="text-center pb-6">
-                <h3 class="text-xl font-bold text-green-900">মুহাম্মদ আব্দুশ শাকুর</h3>
-                <p class="text-green-700 font-medium">মুহতামিম</p>
-                <p class="text-green-700">০১৯১৭৬০০৩৯৬</p>
+                <h3 class="text-xl font-bold text-green-900">{{ $principal->name }}</h3>
+                <p class="text-green-700 font-medium">{{ $principal->designation }}</p>
+                <p class="text-green-700">{{ $principal->phone }}</p>
+                <p class="text-green-700">{{ $principal->email }}</p>
             </div>
         </div>
 
         <!-- Right: মুহতামিমের বাণী -->
-        <div class="bg-white rounded-2xl col-span-2 shadow border border-gray-200 p-8 leading-8 text-gray-800">
+        <div class="bg-white rounded-2xl col-span-3 shadow border border-gray-200 p-8 leading-8 text-gray-800">
             <h2 class="text-2xl font-bold text-green-900 mb-4">মুহতামিমের বাণী</h2>
             <hr class="mb-4" />
-
-            <p class="font-arabic text-xl leading-relaxed mb-4">﷽ بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْم الحمد لله والصلاة
-                و السلام على رسول الكريم</p>
-
             <p>
-                মহান রাব্বুল আলামিন বিশ্বমানবতাকে হিদায়াতের পথে পরিচালিত করার লক্ষ্যে যুগে যুগে অসংখ্য নবী ও রাসূল
-                প্রেরণ করেছেন। তাঁরা নিজ নিজ জাতিকে হক্বের পতাকার নিচে সমবেত হওয়ার আহ্বান জানাতেন। যারা তাঁদের অমীয় বাণী
-                শ্রবণ করে সত্যকে গ্রহণ করেছিল, তারা হিদায়াতপ্রাপ্ত ও জান্নাতের উত্তরাধিকারী হয়েছে। আর
-                যারা তাদের আহ্বান উপেক্ষা করে তাগুতের পথ অনুসরণ করেছিল, তারা হয়েছে গোমরাহ, পথভ্রষ্ট ও চিরজাহান্নামী। এই
-                নবুওয়তের ধারাবাহিকতার পরিসমাপ্তি ঘটে মানবজাতির শ্রেষ্ঠ শিক্ষক, সর্বশেষ নবী ও রাসূল, আমাদের প্রিয়নবী হযরত
-                মুহাম্মদ সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম-এর মাধ্যমে। তিনি বিশ্বমানবতার হিদায়াত ও
-                আত্মিক পরিশুদ্ধির জন্য চারটি মৌলিক কর্মসূচি নিয়ে আবির্ভূত হন
-                <a href="#" class="text-green-700 font-bold">(বিস্তারিত)</a>
+                {!! $principal->message !!}
+                <a href="{{ route('principal') }}" class="bg-green-900 rounded text-white px-4 py-1.5">আরও পড়ুন</a>
             </p>
         </div>
-    </section>
-
-    <!-- Facebook Embed Placeholder -->
-    <section class="container mx-auto px-4 py-8">
-        <h2 class="text-center text-xl font-bold text-green-900 mb-4">ফেসবুকে যুক্ত থাকুন</h2>
-        <div class="bg-white p-4 rounded shadow text-center">Facebook Page Embed Here</div>
     </section>
 
 @endsection

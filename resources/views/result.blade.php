@@ -3,7 +3,7 @@
 
 @section('content')
     <!-- Page Title -->
-    <h2 class="text-3xl font-extrabold text-green-900 text-center py-10">রেজল্ট</h2>
+    <h2 class="text-3xl font-extrabold text-green-900 text-center py-10">রেজাল্ট</h2>
 
     <!-- Section 1 -->
     <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10">
@@ -26,7 +26,7 @@
     </div>
 
     <!-- Section 2 -->
-    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10 mt-10">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-10 mt-10 mb-10">
         <!-- বালিকা শাখা -->
         <div class="bg-white border border-green-900 border-b-4 rounded-xl shadow p-8">
             <h2 class="text-xl font-bold text-green-900 mb-6 leading-relaxed">বালিকা শাখার ফলাফল দেখতে নিচের লিংকে ক্লিক

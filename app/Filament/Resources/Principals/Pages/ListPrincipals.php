@@ -13,7 +13,12 @@ class ListPrincipals extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+                ->visible(\App\Models\Principal::count() < 1),
         ];
+    }
+    protected function canCreate(): bool
+    {
+        return \App\Models\Principal::count() < 1;
     }
 }

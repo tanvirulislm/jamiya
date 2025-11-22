@@ -36,13 +36,23 @@
 
         <!-- Card 4 -->
         <div class="bg-white border border-green-700 rounded-xl shadow p-8">
-            <div class="text-4xl text-green-700 mb-4"><i class="fa-solid fa-users"></i></div>
-            <h3 class="text-xl font-bold text-green-900 mb-2">দীনিয়াত – সকাল/বিকাল</h3>
-
+            {{-- <div class="text-4xl text-green-700 mb-4"><i class="fa-solid fa-users"></i>লিল্লাহ</div> --}}
+            <h3 class="text-xl font-bold text-green-900 mb-2">লিল্লাহ</h3>
             <div class="space-y-3 text-gray-800 leading-relaxed">
-                <p><i class="fa-solid fa-circle text-green-700 mr-2"></i> সকাল ৮টা – ১০টা</p>
-                <p><i class="fa-solid fa-circle text-green-700 mr-2"></i> বিকাল ৩টা – ৫টা</p>
-                <p><i class="fa-solid fa-circle text-green-700 mr-2"></i> রাত্রি – ইসলামী শিক্ষা ও নৈতিকতা</p>
+                <p><i class="fa-solid fa-circle text-green-700 mr-2"></i>আল্লাহর সন্তুষ্টির জন্য যে কোনো ধরনের ঐচ্ছিক দানকে
+                    লিল্লাহ বলা হয়, যা সাধারণত মসজিদ, মাদ্রাসা বা জনকল্যাণমূলক কাজে ব্যবহৃত হয়।</p>
+            </div>
+            <h3 class="text-xl font-bold text-green-900 mb-2">সাদাকাহ</h3>
+            <div class="space-y-3 text-gray-800 leading-relaxed">
+                <p><i class="fa-solid fa-circle text-green-700 mr-2"></i>এটি একটি ঐচ্ছিক দান। যেকোনো সময়, যেকোনো পরিমাণ অর্থ
+                    বা বস্তু আল্লাহর পথে দান করাকে সাদাকাহ বলে। এর মাধ্যমে সওয়াব লাভ করা যায়।</p>
+            </div>
+            <h3 class="text-xl font-bold text-green-900 mb-2">লিল্লাহ</h3>
+            <div class="space-y-3 text-gray-800 leading-relaxed">
+                <p><i class="fa-solid fa-circle text-green-700 mr-2"></i>ইসলামের পাঁচটি স্তম্ভের একটি। এটি ধন-সম্পদের একটি
+                    নির্দিষ্ট অংশ, যা নির্দিষ্ট পরিমাণ সম্পদ থাকলে গরিব ও অভাবী মানুষকে দেওয়া বাধ্যতামূলক।
+
+                </p>
             </div>
         </div>
     </section>

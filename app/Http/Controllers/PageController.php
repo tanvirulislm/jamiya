@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Video;
+use App\Models\Gallery;
 use App\Models\Teacher;
 use App\Models\Principal;
 use Illuminate\Http\Request;
@@ -11,7 +13,8 @@ class PageController extends Controller
     // Home Page
     public function HomePage()
     {
-        return view('welcome');
+        $principal = Principal::first();
+        return view('welcome', compact('principal'));
     }
 
     // About Page
@@ -74,5 +77,24 @@ class PageController extends Controller
     public function ContactPage()
     {
         return view('contact');
+    }
+
+    // Gallery Page
+    public function GalleryPage()
+    {
+        $galleries = Gallery::latest()->get();
+        return view('gallery', compact('galleries'));
+    }
+    // Gallery Page
+    public function VideoPage()
+    {
+        $videos = Video::latest()->get();
+        return view('video', compact('videos'));
+    }
+
+    // Kitab Page
+    public function KitabPage()
+    {
+        return view('kitab');
     }
 }

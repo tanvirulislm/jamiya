@@ -18,7 +18,7 @@ class PrincipalResource extends Resource
 {
     protected static ?string $model = Principal::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserCircle;
 
     public static function form(Schema $schema): Schema
     {

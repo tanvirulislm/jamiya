@@ -2,10 +2,12 @@
 
 namespace App\Providers\Filament;
 
+use Filament\Enums\GlobalSearchPosition;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Livewire\GlobalSearch;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -53,6 +55,8 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->topbar(false)
+            ->globalSearch(position: GlobalSearchPosition::Sidebar)
             ->spa()
             ->authMiddleware([
                 Authenticate::class,

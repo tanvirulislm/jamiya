@@ -15,3 +15,6 @@ Route::get('result', [PageController::class, 'ResultPage'])->name('result');
 Route::get('donation', [PageController::class, 'DonationPage'])->name('donation');
 Route::get('event', [PageController::class, 'EventPage'])->name('event');
 Route::get('contact', [PageController::class, 'ContactPage'])->name('contact');
+Route::get('gallery', [PageController::class, 'GalleryPage'])->name('gallery');
+Route::get('video', [PageController::class, 'VideoPage'])->name('video');
+Route::get('kitab', [PageController::class, 'KitabPage'])->name('kitab');

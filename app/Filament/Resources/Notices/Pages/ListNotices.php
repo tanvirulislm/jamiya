@@ -13,7 +13,12 @@ class ListNotices extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+                ->visible(\App\Models\Notice::count() < 1),
         ];
+    }
+    protected function canCreate(): bool
+    {
+        return \App\Models\Notice::count() < 1;
     }
 }

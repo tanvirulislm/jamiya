@@ -12,7 +12,7 @@
             <!-- Profile Photo -->
             <div class="md:w-1/3 flex justify-center">
                 <div class="w-60 h-full rounded-xl overflow-hidden shadow-xl border-4 border-green-700">
-                    <img src="image/image1.webp" class="w-full h-full object-cover" />
+                    <img src="{{ asset('storage/' . $principal->photo) }}" class="w-full h-full object-cover" />
                 </div>
             </div>
 

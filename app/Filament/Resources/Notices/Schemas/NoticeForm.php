@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\Notices\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
 class NoticeForm
@@ -16,12 +16,15 @@ class NoticeForm
                     ->label('শিরোনাম')
                     ->maxLength(100)
                     ->required(),
-                Toggle::make('status')
-                    ->label('প্রকাশিত')
-                    ->onColor('success')
-                    ->offColor('secondary')
-                    ->default(false)
-                    ->required(),
+                // Select::make('status')
+                //     ->label('স্ট্যাটাস')
+                //     ->options([
+                //         'draft' => 'Draft',
+                //         'published' => 'Published',
+                //     ])
+                //     ->default('draft')
+                //     ->required(),
+
             ]);
     }
 }
