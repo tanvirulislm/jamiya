@@ -86,16 +86,5 @@
         </div>
     </section>
 
-    <!-- Contact CTA -->
-    <section class="bg-green-900 py-10 text-center">
-        <h2 class="text-2xl font-bold text-white mb-4">আরও তথ্য জানতে চান?</h2>
-        <p class="text-green-200 mb-6">যোগাযোগ করুন: ০১৯১৭৬০০৩৯৬</p>
-
-        <a href="{{ route('contact') }}"
-            class="bg-white text-green-900 px-6 py-3 font-bold rounded shadow hover:bg-green-100">
-            যোগাযোগ পেইজে যান
-        </a>
-    </section>
-
 
 @endsection

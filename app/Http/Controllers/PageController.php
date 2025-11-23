@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\Video;
 use App\Models\Gallery;
 use App\Models\Teacher;
@@ -70,7 +71,8 @@ class PageController extends Controller
     // Event Page
     public function EventPage()
     {
-        return view('event');
+        $events = Event::latest()->get();
+        return view('event', compact('events'));
     }
 
     // Contact Page
