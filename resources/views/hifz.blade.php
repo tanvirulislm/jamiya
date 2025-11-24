@@ -1,11 +1,11 @@
 @extends('layout.app')
-@section('title', 'কিতাব বিভাগ')
+@section('title', 'হিফজ বিভাগ')
 
 @section('content')
 
     <!-- Page Title -->
     <h2 class="text-3xl font-extrabold text-green-900 text-center py-10">
-        কিতাব বিভাগ
+        হিফজ বিভাগ
     </h2>
 
     <!-- Introduction Section -->
@@ -13,7 +13,7 @@
         <div class="bg-white border border-green-700 shadow-lg rounded-2xl p-8 lg:p-10 leading-8 text-gray-800">
             <h2 class="text-2xl font-bold text-green-900 mb-4">পরিচিতি</h2>
             <p class="mb-4">
-                {!! $kitab->description !!}
+                {!! $hifz->description !!}
             </p>
         </div>
     </section>
@@ -27,7 +27,7 @@
         </h2>
 
         <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            @foreach ($kitab->classes as $class)
+            @foreach ($hifz->classes as $class)
                 <div class="group bg-white border border-green-700 rounded-xl p-6 shadow-lg 
                             hover:shadow-2xl hover:-translate-y-1 transition duration-300">
                     
@@ -86,7 +86,7 @@
             <h2 class="text-2xl font-bold text-green-900 mb-4">ভর্তির যোগ্যতা</h2>
 
             <ul class="list-disc pl-6 leading-8 text-gray-800 text-lg">
-                @foreach ($kitab->requirements as $req)
+                @foreach ($hifz->requirements as $req)
                     <li>{{ $req['text'] }}</li>
                 @endforeach
             </ul>

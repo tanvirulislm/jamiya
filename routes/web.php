@@ -18,3 +18,6 @@ Route::get('contact', [PageController::class, 'ContactPage'])->name('contact');
 Route::get('gallery', [PageController::class, 'GalleryPage'])->name('gallery');
 Route::get('video', [PageController::class, 'VideoPage'])->name('video');
 Route::get('kitab', [PageController::class, 'KitabPage'])->name('kitab');
+Route::get('nurani', [PageController::class, 'NuraniPage'])->name('nurani');
+Route::get('hifz', [PageController::class, 'HifzPage'])->name('hifz');
+Route::get('school', [PageController::class, 'SchoolPage'])->name('school');

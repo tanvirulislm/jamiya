@@ -57,9 +57,9 @@
             </div>
 
             <!-- Map Placeholder -->
-            <div class="mt-10 rounded-lg overflow-hidden border border-green-700">
+            {{-- <div class="mt-10 rounded-lg overflow-hidden border border-green-700">
                 <div class="bg-green-100 text-center py-20 text-green-700">Google Map Embed Here</div>
-            </div>
+            </div> --}}
         </div>
 
         <!-- Right: Contact Form -->

@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Event;
 use App\Models\Video;
+use App\Models\Jamiya;
+use App\Models\Slider;
 use App\Models\Gallery;
 use App\Models\Teacher;
 use App\Models\Principal;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,14 +18,18 @@ class PageController extends Controller
     // Home Page
     public function HomePage()
     {
+        $about = About::first();
+        $jamiyas = Jamiya::orderBy('created_at', 'asc')->get();
+        $sliders = Slider::latest()->get();
         $principal = Principal::first();
-        return view('welcome', compact('principal'));
+        return view('welcome', compact('principal', 'sliders', 'jamiyas', 'about'));
     }
 
     // About Page
     public function AboutPage()
     {
-        return view('about');
+        $about = About::first();
+        return view('about', compact('about'));
     }
 
     // Principal Page
@@ -97,6 +105,28 @@ class PageController extends Controller
     // Kitab Page
     public function KitabPage()
     {
-        return view('kitab');
+        $kitab = Department::where('type', 'kitab')->first();
+        return view('kitab', compact('kitab'));
+    }
+
+    // Hifz Page
+    public function HifzPage()
+    {
+        $hifz = Department::where('type', 'hifz')->first();
+        return view('hifz', compact('hifz'));
+    }
+
+    // Nurani Page
+    public function NuraniPage()
+    {
+        $nurani = Department::where('type', 'nurani')->first();
+        return view('nurani', compact('nurani'));
+    }
+
+    // Nurani Page
+    public function SchoolPage()
+    {
+        $school = Department::where('type', 'school')->first();
+        return view('nurani', compact('school'));
     }
 }

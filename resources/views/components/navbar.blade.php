@@ -1,37 +1,19 @@
-<!-- Marquee Notice Bar -->
+<!-- Marquee Notice Bar for all device -->
 @if ($publishedNotice)
-    <div class="bg-[#00460B] text-white shadow text-sm py-1">
+    <div class="bg-[#00460B] text-white shadow text-sm pt-2">
         <marquee>{{ $publishedNotice->title }}</marquee>
     </div>
 @endif
 
-<!-- Desktop Header (visible only on desktop) -->
-<header class="bg-[#00460B] text-white shadow py-4">
+<!-- Header Logo for all device -->
+<header class="bg-[#00460B] text-white shadow py-1">
     <div class="container mx-auto px-4 flex flex-col items-center justify-center">
         <img src="image/logo.webp" alt="Logo" class="md:h-32" />
     </div>
 </header>
 
-<!-- Mobile Header (visible only on mobile) -->
-<header class="md:hidden bg-[#00460B] text-white shadow">
-    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-        <!-- Hamburger Menu Button -->
-        <button id="mobileMenuToggle" class="text-white focus:outline-none">
-            <i class="fa fa-bars text-2xl"></i>
-        </button>
-
-        <!-- Logo Image -->
-        {{-- <img src="image/logo.webp" alt="Logo" class="h-16" /> --}}
-
-        <!-- English Button -->
-        <a href="#" class="text-white hover:text-yellow-300 font-medium">
-            English
-        </a>
-    </div>
-</header>
-
-<!-- Navigation Menu -->
-<nav class="bg-[#014F0D]  items-center text-white shadow sticky top-0 z-50">
+<!-- Navigation Menu only for desktop -->
+<nav class="bg-[#014F0D] hidden md:block  items-center text-white shadow sticky top-0 z-50">
     <div class="container mx-auto flex items-center justify-between px-4 py-3">
 
         <!-- Menu Items -->
@@ -69,9 +51,9 @@
                 <ul
                     class="absolute hidden group-hover:block bg-white text-green-900 shadow rounded md:min-w-[180px] py-2 z-50">
                     <li><a href="{{ route('kitab') }}" class="block px-4 py-2 hover:bg-green-100">কিতাব বিভাগ</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-green-100">হিফজ বিভাগ</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-green-100">নূরানী বিভাগ</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-green-100">স্কুল</a></li>
+                    <li><a href="{{ route('hifz') }}" class="block px-4 py-2 hover:bg-green-100">হিফজ বিভাগ</a></li>
+                    <li><a href="{{ route('nurani') }}" class="block px-4 py-2 hover:bg-green-100">নূরানী বিভাগ</a></li>
+                    <li><a href="{{ route('school') }}" class="block px-4 py-2 hover:bg-green-100">স্কুল</a></li>
                 </ul>
             </li>
 
@@ -117,7 +99,7 @@
                 </a>
             </li>
 
-            <li class="md:hidden">
+            <li>
                 <a href="#" class="flex items-center gap-2 hover:text-yellow-300">
                     <i class="fa fa-language"></i> English
                 </a>
@@ -127,11 +109,53 @@
     </div>
 </nav>
 
-<!-- JavaScript for Mobile Menu Toggle -->
+
+<!-- Mobile Navbar (only visible on mobile) -->
+<nav class="bg-[#014F0D] text-white shadow md:hidden sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+
+        <!-- Left: Hamburger Menu -->
+        <button id="mobileMenuButton" class="text-white text-2xl focus:outline-none">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- Right: Translate / Language Icon -->
+        <a href="#" class="text-white text-xl hover:text-yellow-300">
+            <i class="fa fa-language"></i>
+        </a>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden bg-[#014F0D] border-t border-green-700">
+        <ul class="flex flex-col text-white font-medium p-4 space-y-2">
+
+            <li><a href="{{ route('home') }}" class="block py-2">হোম</a></li>
+
+            <li><a href="{{ route('about') }}" class="block py-2">আমাদের সম্পর্কে</a></li>
+            <li><a href="{{ route('principal') }}" class="block py-2">মুহতামিম</a></li>
+
+            <li><a href="{{ route('kitab') }}" class="block py-2">কিতাব বিভাগ</a></li>
+            <li><a href="{{ route('hifz') }}" class="block py-2">হিফজ বিভাগ</a></li>
+            <li><a href="{{ route('nurani') }}" class="block py-2">নূরানী বিভাগ</a></li>
+            <li><a href="{{ route('school') }}" class="block py-2">স্কুল</a></li>
+
+            <li><a href="{{ route('admission') }}" class="block py-2">ভর্তি নির্দেশিকা</a></li>
+            <li><a href="{{ route('teachers') }}" class="block py-2">শিক্ষকবৃন্দ</a></li>
+            <li><a href="{{ route('result') }}" class="block py-2">ফলাফল</a></li>
+            <li><a href="{{ route('donation') }}" class="block py-2">অনুদান</a></li>
+            <li><a href="{{ route('gallery') }}" class="block py-2">গ্যালারি</a></li>
+            <li><a href="{{ route('video') }}" class="block py-2">ভিডিও</a></li>
+            <li><a href="{{ route('event') }}" class="block py-2">অনুষ্ঠান</a></li>
+            <li><a href="{{ route('contact') }}" class="block py-2">যোগাযোগ</a></li>
+
+            <li><a href="#" class="block py-2">English</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- JS for mobile toggle -->
 <script>
-    document.getElementById('mobileMenuToggle').addEventListener('click', function () {
-        const menu = document.getElementById('navMenu');
-        menu.classList.toggle('hidden');
-        menu.classList.toggle('flex');
+    document.getElementById('mobileMenuButton').addEventListener('click', function () {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
     });
 </script>

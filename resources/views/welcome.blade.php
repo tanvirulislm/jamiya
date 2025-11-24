@@ -3,12 +3,45 @@
 
 @section('content')
 
-    <!-- Slider -->
     <div class="container mx-auto px-4 py-6">
-        <div class="rounded overflow-hidden shadow">
-            <img src="slider.jpg" class="w-full h-64 object-cover" />
+        <div class="rounded overflow-hidden shadow relative">
+
+            <div id="slider" class="relative w-full h-[550px] overflow-hidden">
+                @foreach ($sliders as $s)
+                    <img src="{{ asset('storage/' . $s->image) }}"
+                        class="slide w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-700" />
+                @endforeach
+            </div>
+
+            <!-- Prev/Next Buttons -->
+            <button id="prev" class="absolute left-3 top-1/2 -translate-y-1/ text-white rounded-full"><i
+                    class="fa fa-angle-left"></i></button>
+            <button id="next" class="absolute right-3 top-1/2 -translate-y-1/ text-white rounded-full">❯</button>
         </div>
     </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function showSlide(i) {
+            slides.forEach(slide => slide.style.opacity = 0);
+            slides[i].style.opacity = 1;
+        }
+
+        document.getElementById('next').onclick = () => {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        };
+
+        document.getElementById('prev').onclick = () => {
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide(index);
+        };
+
+        showSlide(index);
+    </script>
+
 
     <!-- আমাদের বিভাগসমূহ -->
     <section class="container mx-auto px-4 py-10">
@@ -16,7 +49,8 @@
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
             <!-- কিতাব -->
-            <a href="#" class="bg-white p-8 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.15)] hover:shadow-lg transition">
+            <a href="{{ route('kitab') }}"
+                class="bg-white p-8 rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.15)] hover:shadow-lg transition">
                 <i class="fa-solid fa-table-cells-large text-4xl text-green-900 mb-3"></i>
                 <h3 class="text-xl font-bold text-green-900">কিতাব</h3>
             </a>
@@ -43,44 +77,19 @@
 
     <!-- প্রতিষ্ঠার ইতিহাস -->
     <section class="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded shadow">
+        <div class="bg-white p-6 rounded shadow ">
             <h3 class="text-2xl font-bold mb-3 text-green-800">মাদরাসা প্রতিষ্ঠার ইতিহাস</h3>
             <p class="text-gray-700 leading-relaxed text-lg mb-4">
-                মাওলানা মুহাম্মদ আব্দুশ শাকুর ১৯৯৪ সালে দ্বীনি শিক্ষার সর্বোচ্চ স্তর দাওরায়ে হাদীস অধ্যয়ন সমাপ্ত করে
-                তাবলীগি সফর শেষে শ্রীমঙ্গলের সিন্দুরখান রোডে অবস্থিত তাঁর চাচার বাসায় অবস্থান করেন। এরপর তিনি
-                পার্শ্ববর্তী খাসগাঁও হাসানিয়া মাদরাসায় মহান শিক্ষকতার পেশায় নিয়োজিত হন। যদিও তিনি দ্বীনের
-                খেদমতে নিয়োজিত ছিলেন, তবুও এলাকার সার্বিক পরিস্থিতি ও দ্বীনি শিক্ষার দুরবস্থা তাঁকে গভীরভাবে ভাবিয়ে
-                তুলেছিল। তাঁর অন্তরে দীর্ঘদিন ধরে লালিত ছিল দ্বীনের খেদমতকে কেন্দ্র করে একটি বৃহত্তর স্বপ্ন — এ অঞ্চলে
-                উচ্চতর দ্বীনি শিক্ষা প্রতিষ্ঠার আকাঙ্ক্ষা। ঠিক একইভাবে তাঁর চাচা, মৌলভীবাজার জেলার
-                রাজনগর উপজেলার লন্ডনপ্রবাসী এক দ্বীনপ্রেমী শিক্ষানুরাগী ডা. এখলাছুর রহমান সাহেবও দীর্ঘদিন ধরে একটি আদর্শ
-                ধর্মীয় শিক্ষা প্রতিষ্ঠান প্রতিষ্ঠার চিন্তা লালন করছিলেন। কালের পরিক্রমায় একদিন এই দুই মহান ব্যক্তিত্বের
-                অন্তর্নিহিত সুমহান চিন্তাধারার মিলন ঘটে। মাওলানা মুহাম্মদ আব্দুশ শাকুর তাঁর চাচার
-                কাছে প্রেরিত এক দীর্ঘ চিঠিতে তাঁর অনুভূতি প্রকাশ করেন এবং সিন্দুরখানস্থ ঐ বাসাবাড়িতে পরিকল্পিত মাদরাসা
-                প্রতিষ্ঠার অভিপ্রায় ব্যক্ত করেন। এরপর বিশিষ্ট উলামায়ে কেরাম ও ইসলামী চিন্তাবিদদের পরামর্শক্রমে উভয়ের
-                চিন্তা ও কর্মপ্রচেষ্টা বাস্তবায়নের লক্ষ্যে কার্যক্রম শুরু হয়। পরিশেষে মহান রাব্বুল
-                কারীমের অফুরন্ত অনুগ্রহ ও মেহেরবানিতে ১৯৯৮ সালের ২ রমযান ১৪১৮ হিজরি তারিখে “জামেয়া ইসলামিয়া বালক-বালিকা
-                মাদরাসা, সিন্দুরখান রোড, শ্রীমঙ্গল” নামক এই দ্বীনি দরসগাহের শুভ সূচনা হয়।
+                {!! $about->history !!}
             </p>
-            <a href="{{ route("about") }}" class="bg-green-900 rounded text-white px-4 py-1.5">আমাদের সম্পর্কে পড়ুন</a>
+            <a href="{{ route("about") }}" class="bg-green-900 rounded text-white mb-3 px-4 py-1.5">আমাদের সম্পর্কে পড়ুন</a>
         </div>
         <div class="bg-white p-6 rounded shadow">
             <h3 class="text-2xl font-bold mb-3 text-green-800">এক নজরে জামেয়া ইসলামিয়া</h3>
             <ul class="text-lg text-gray-700 space-y-1">
-                <li><strong>নাম:</strong> জামেয়া ইসলামিয়া শ্রীমঙ্গল</li>
-                <li><strong>প্রতিষ্ঠাতা:</strong> ১লা জানুয়ারী ১৯৯৯ ঈসায়ী মোতাবেক ২রা রমযান ১৪১৮ হিজরী</li>
-                <li><strong>ঠিকানা:</strong>সুনগইড়, সিন্দুরখান রোড, শ্রীমঙ্গল ৩২১০, মৌলভীবাজার</li>
-                <li><strong>সভাপতি:</strong>আল্লামা মুফতি রশিদুর রহমান ফারুক (পীর সাহেব বরুণা)</li>
-                <li><strong>প্রতিষ্ঠাতা তত্ত্বাবধায়ক:</strong>জনাব আলহাজ্ব ডা. এখলাছুর রহমান</li>
-                <li><strong>প্রতিষ্ঠাতা মুহতামিম :</strong>মাওলানা মুহাম্মদ আব্দুশ শাকুর</li>
-                <li><strong>শিক্ষাবোর্ড:</strong>আল-হাইআতুল উলইয়া লিল জামি’আতিল ক্বাওমিয়া বাংলাদেশ (কোড: ৪০২৪৫) বেফাকুল
-                    মাদারিসিল আরাবিয়া বাংলাদেশ (রেজি. নং: ৩/২০৩/-ম১/৪২)</li>
-                <li><strong>শিক্ষক-শিক্ষিকা ও স্টাফ :</strong>৮৫ জন</li>
-                <li><strong>বিভাগ সমূহ :</strong>হিফয বিভাগ কিতাব বিভাগ নূরানী বিভাগ প্রাইমারি ও মাধ্যমিক বিভাগ</li>
-                <li><strong>ছাত্র/ছাত্রী সংখ্যা :</strong>১১০০+ জন (ইকরা ও তাহফিজসহ)</li>
-                <li><strong>আয়ের খাতসমূহ :</strong>ভর্তি ফি, বোর্ডিং ফি, বেতন, আবাসিক ফি, দেশী ও প্রবাসী দাতাদের
-                    স্বেচ্ছাদান</li>
-                <li><strong>ব্যয়ের খাতসমূহ :</strong>বোর্ডিং, বেতন, নির্মাণ, কুতুবখানা, এতিম ও গরীব শিক্ষার্থীদের
-                    সহযোগিতা</li>
+                @foreach ($jamiyas as $j)
+                    <li><strong>{{ $j->title }}:</strong> {{ $j->description }}</li>
+                @endforeach
             </ul>
         </div>
     </section>

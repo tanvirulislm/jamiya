@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>403 - Forbidden</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
 
-    <!-- Tailwind (works if already included in app.css) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
@@ -32,43 +31,35 @@
 
     <div class="text-center px-6">
 
-        <!-- Icon -->
+        <!-- Shield icon -->
         <div class="float-animation inline-block">
             <svg class="w-40 h-40 mx-auto text-green-700" fill="none" stroke="currentColor" stroke-width="1.5"
                 viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 
-                         0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464
-                         0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 4v5c0 5-3.5 9-7 9s-7-4-7-9V7l7-4z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
             </svg>
         </div>
 
         <!-- Title -->
-        <h1 class="text-7xl font-extrabold text-green-800 my-6">
-            404
+        <h1 class="text-5xl font-extrabold text-green-800 mt-6">
+            403 – Forbidden
         </h1>
 
-        <!-- Subtitle -->
-        <p class="text-xl text-gray-700 font-medium">
-            Oops! The page you're looking for doesn’t exist.
+        <!-- Message -->
+        <p class="text-lg text-gray-700 mt-4">
+            You don’t have permission to access this page.
         </p>
 
-        <!-- Description -->
-        <p class="mt-2 text-gray-600">
-            It might have been moved, deleted, or never existed at all.
-        </p>
-
-        <!-- Button -->
+        <!-- Home Button -->
         <a href="{{ url('/') }}" class="mt-8 inline-block px-8 py-3 bg-green-700 text-white text-lg rounded-xl shadow-lg 
-                  hover:bg-green-800 transition-all duration-200">
-            Back to Home
+                   hover:bg-green-800 transition-all duration-200">
+            Go Back Home
         </a>
 
-        <!-- Additional styling -->
-        <div class="mt-12 text-sm text-gray-500">
+        <div class="mt-10 text-sm text-gray-500">
             <p>© {{ date('Y') }} All Rights Reserved. Design & Developed By <a href="https://hikmatech.com/"
-                    class="text-green-700 hover:text-green-800 transition-all duration-200">HikmaTech</a> </p>
+                    class="text-green-700 hover:text-green-800 transition-all duration-200">HikmaTech</a></p>
         </div>
-
     </div>
 
 </body>
